@@ -1,0 +1,301 @@
+body {
+    margin: 0; /* Sayfa kenar boşluklarını sıfırlar */
+    padding: 0; /* Sayfanın iç dolgusunu sıfırlar */
+    box-sizing: border-box; /* Genişlik ve yükseklik hesaplamalarına padding ve border'ı dahil eder */
+    font-family: Tahoma; /* Sayfanın genel yazı tipini Tahoma olarak ayarlar */
+    background: #242424 url(assets/leaf.png); /* Arkaplan rengi ve yaprak görselini tanımlar */
+    background-repeat: repeat; /* Arkaplan görselinin tekrarlanmasını sağlar */
+    animation: drop 70s linear infinite; /* Arkaplan için sürekli akan animasyonu tanımlar */
+    z-index: -1; /* Arkaplanı diğer içeriklerin arkasına atar */
+}
+
+/* Arkaplanın yukarıdan aşağı kaymasını sağlayan animasyon */
+@keyframes drop {
+    0% {
+        background-position: 50% 0; /* Başlangıçta arkaplan orta hizalı ve üstte başlar */
+    }
+    100% {
+        background-position: 50% 100%; /* Bitişte arkaplan orta hizalı ve en altta olur */
+    }
+}
+
+header {
+    height: 150px; /* Başlık yüksekliği */
+    position: relative; /* İçindeki mutlak konumlu öğeler için referans noktası oluşturur */
+    display: flex; /* Header içeriğini esnek kutu modeliyle hizalar */
+    align-items: center; /* Dikeyde ortalar */
+    justify-content: center; /* Yatayda ortalar */
+    padding-left: 120px; /* Soldan boşluk bırakır */
+    padding-right: 30px; /* Sağdan boşluk bırakır */
+}
+
+header img {
+    position: absolute; /* Logoyu mutlak konumla yerleştirir */
+    top: 25px; /* Üstten 25px boşluk bırakır */
+    left: 25px; /* Soldan 25px boşluk bırakır */
+    height: 100px; /* Logo yüksekliği */
+    width: 200px; /* Logo genişliği */
+}
+
+.insta {
+    top: 2%; /* Üstten yüzde ile konum */
+    left: 93%; /* Soldan yüzde ile konum */
+    height: 40px; /* İkon yüksekliği */
+    width: 40px; /* İkon genişliği */
+    float: right; /* Sağ tarafa yaslar */
+    padding-left: 5px; /* Sol boşluk */
+}
+
+.wp {
+    top: 35%; /* Üstten yüzde konumu */
+    left: 93.4%; /* Soldan konum */
+    height: 35px; /* Yükseklik */
+    width: 35px; /* Genişlik */
+    float: right; /* Sağ yaslama */
+}
+
+header h1 {
+    padding: 15px; /* İç boşluk */
+    border: 2px solid; /* Kenarlık */
+    border-radius: 5px; /* Köşeleri yuvarlatır */
+    background: #242424; /* Arkaplan rengi */
+    font-size: 2.5em; /* Yazı boyutu */
+    color: goldenrod; /* Yazı rengi */
+    text-align: center; /* Ortala */
+    margin: 0; /* Dış boşluk yok */
+}
+
+h1 span {
+    opacity: 0; /* Başlangıçta görünmez */
+    display: inline-block; /* Her harf blok gibi davranır */
+    animation: dusus 1s ease-in-out forwards; /* Harf düşüş animasyonu */
+}
+
+/* Harflerin yukarıdan kayarak düşmesini sağlayan animasyon */
+@keyframes dusus {
+    0% {
+        opacity: 0; /* Görünmez başlar */
+        transform: translateY(-140px); /* Yukarıdan başlar */
+    }
+    25% {
+        filter: blur(5px); /* Geçişte bulanıklık */
+    }
+    50% {
+        transform: translateY(10px); /* Aşağı doğru kayar */
+    }
+    100% {
+        opacity: 1; /* Görünür olur */
+        transform: translateY(-2px); /* Çok az yukarı çıkar */
+    }
+}
+
+/* Harflerin sırayla gelmesi için gecikmeler */
+h1 span:nth-child(1) { animation-delay: .5s; }
+h1 span:nth-child(2) { animation-delay: .8s; }
+h1 span:nth-child(3) { animation-delay: 1.1s; }
+h1 span:nth-child(4) { animation-delay: 1.4s; }
+h1 span:nth-child(5) { animation-delay: 1.7s; }
+h1 span:nth-child(6) { animation-delay: 2s; }
+h1 span:nth-child(7) { animation-delay: 2.3s; }
+h1 span:nth-child(8) { animation-delay: 2.6s; }
+h1 span:nth-child(9) { animation-delay: 2.9s; }
+h1 span:nth-child(10) { animation-delay: 3.2s; }
+h1 span:nth-child(11) { animation-delay: 3.5s; }
+
+nav {
+    position: sticky; /* Scroll ile sabit kalır */
+    top: 0; /* Üste yapışır */
+    width: 100%; /* Tam genişlik */
+    background: rgba(248, 248, 248, .8); /* Yarı saydam arkaplan */
+    border-top: 2px solid black; /* Üst kenarlık */
+    border-bottom: 2px solid black; /* Alt kenarlık */
+}
+
+nav ul {
+    margin: 0; /* Dış boşluk sıfır */
+    padding: 0; /* İç boşluk sıfır */
+    display: flex; /* Yatay liste */
+    flex-wrap: wrap; /* Ekran daraldığında alt satıra geçebilir */
+    justify-content: space-around; /* Öğeleri yayar */
+}
+
+nav ul li {
+    list-style: none; /* Madde işaretlerini kaldırır */
+}
+
+nav ul li a {
+    display: flex; /* Link içeriği esnek kutu */
+    align-items: center; /* Dikey ortalama */
+    text-decoration: none; /* Alt çizgi yok */
+    font-weight: bold; /* Kalın yazı */
+    color: black; /* Yazı rengi */
+    padding: 10px 20px; /* İç boşluk */
+}
+
+nav ul li a:hover {
+    background: goldenrod; /* Üzerine gelince arkaplan değişir */
+    transition: 0.3s; /* Yumuşak geçiş */
+    transform: scale(105%); /* Biraz büyür */
+}
+
+nav ul li a:active {
+    transform: scale(95%); /* Tıklayınca küçülür */
+    background: brown; /* Arkaplan kahverengi olur */
+    transition: .1s; /* Hızlı geçiş */
+}
+
+nav ul li a img {
+    margin-right: 8px; /* Sağında boşluk bırakır */
+    width: 32px; /* İkon genişliği */
+    height: 32px; /* İkon yüksekliği */
+}
+
+.content {
+    display: flex; /* İçerikler yan yana */
+    justify-content: space-between; /* Boşluklu hizalama */
+    flex-wrap: nowrap; /* Alt satıra kaymaz */
+}
+
+section {
+    width: 97%; /* Genişlik */
+    margin: 10px 0 0 10px; /* Üst ve sol boşluk */
+    padding: 20px; /* İç boşluk */
+    border-radius: 20px; /* Köşeleri yuvarlatır */
+    border: 1px solid whitesmoke; /* Kenarlık */
+    background: rgba(192, 192, 192, 0.7); /* Yarı saydam gri arkaplan */
+}
+
+.s2 {
+    background: rgba(218, 165, 32, 0.7); /* Altın rengi yarı saydam arkaplan */
+}
+
+section p,
+footer p {
+    color: white; /* Yazı beyaz */
+    text-align: justify; /* Yazı iki yana yaslı */
+    text-indent: 20px; /* Satır başı boşluk */
+    font-weight: bold; /* Kalın yazı */
+    text-shadow: #242424 2px 1px 3px; /* Gölge efekti */
+}
+
+section h2,
+footer h2 {
+    text-align: center; /* Ortala */
+    font-size: 2em; /* Büyük yazı */
+    letter-spacing: 0.1em; /* Harf arası boşluk */
+    color: #000; /* Siyah yazı */
+}
+
+footer h2 {
+    color: gold; /* Altın rengi yazı */
+}
+
+footer {
+    width: 97%; /* Genişlik */
+    height: auto; /* Yükseklik içeriğe göre */
+    margin: 10px auto; /* Ortalı */
+    background: rgba(36, 36, 36, .8); /* Yarı saydam koyu arkaplan */
+    border-radius: 20px; /* Köşe yuvarlatma */
+    border: 1px solid whitesmoke; /* Kenarlık */
+    padding: 10px; /* İç boşluk */
+}
+
+/* RESPONSIVE TASARIM: Farklı ekran boyutlarına göre uyarlamalar */
+@media(max-width:815px) {
+    header {
+        padding-left: 150px; /* Sol boşluk artar */
+    }
+    h1 {
+        display: flex;
+        flex-wrap: nowrap; /* Harfler alt satıra kaymasın */
+    }
+    h1 span {
+        font-size: .9em; /* Daha küçük harf */
+    }
+    .logo {
+        height: 80px;
+        width: 160px;
+        margin-left: -15px; /* Logo sola kayar */
+    }
+    .content {
+        display: flex;
+        flex-wrap: wrap; /* Alt alta dizilir */
+    }
+}
+
+@media (max-width: 650px) {
+    h1 {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    header {
+        padding-left: 120px;
+    }
+    h1 span {
+        font-size: .7em;
+    }
+    .logo {
+        height: 70px;
+        width: 140px;
+    }
+    .insta {
+        top: 2%;
+        left: 90%;
+        height: 40px;
+        width: 40px;
+        float: right;
+        padding-left: 5px;
+    }
+    .wp {
+        top: 35%;
+        left: 91%;
+        height: 35px;
+        width: 35px;
+        float: right;
+    }
+    section,
+    footer {
+        width: 95%;
+        margin: 10px 0 0 10px;
+    }
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 470px) {
+    h1 {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    header {
+        padding-left: 120px;
+    }
+    h1 span {
+        font-size: .5em;
+    }
+    .logo {
+        height: 50px;
+        width: 100px;
+    }
+    .insta {
+        margin-left: -20px;
+        height: 30px;
+        width: 30px;
+    }
+    .wp {
+        margin-left: -10px;
+        height: 25px;
+        width: 25px;
+    }
+    section,
+    footer {
+        width: 95%;
+        margin: 10px 0 0 10px;
+    }
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
