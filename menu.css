@@ -1,0 +1,118 @@
+*{
+  cursor: url("images/cursor.png"), auto;  
+}
+body {
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    
+    
+    
+}
+
+button {
+    
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: yellow;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: yellow;
+    color: darkblue;
+    transform: rotateX(360deg);
+    transition: 1.2s;
+}
+
+/* Modal stil */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.model-content {
+    position: relative;
+    margin: 5% auto;
+    background-color: darkcyan;
+    padding: 30px;
+    width: 100vw;
+    height: 90vh;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+/* Scrollbar stilleri */
+.model-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.model-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.model-content::-webkit-scrollbar-thumb {
+    background: rgb(158, 3, 3);
+    border-radius: 4px;
+}
+
+.model-content::-webkit-scrollbar-thumb:hover {
+    background: rgb(192, 5, 5);
+    transition: 0.5s;
+}
+
+/* Kapatma butonu */
+.close {
+    position: fixed;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    top: 0;
+    cursor: pointer;
+    margin-left: -10px;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(192, 5, 5);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+/* Projeler için stil */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    height: 90%;
+    overflow-y: auto;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.project {
+    flex: 1 1 calc(50% - 20px);
+    width: 100%;
+    height: 100%;
+    border: solid 4px black;
+    border-radius: 10px;
+    object-fit: contain;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
